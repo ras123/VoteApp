@@ -16,17 +16,17 @@
     <AppXManifest Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-11-11T01:19:34.882</Modified>
+      <Modified>2012-11-11T02:33:01.761</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\bin\Debug\VoteApp.exe">
       <PackagePath>VoteApp.exe</PackagePath>
-      <Modified>2012-11-11T01:19:34.646</Modified>
+      <Modified>2012-11-11T02:46:55.366</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\bin\Debug\VoteApp.pdb">
       <PackagePath>VoteApp.pdb</PackagePath>
-      <Modified>2012-11-11T01:19:34.605</Modified>
+      <Modified>2012-11-11T02:46:55.160</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\MobileServicesManagedClient\0.2.0.0\References\CommonConfiguration\neutral\Microsoft.WindowsAzure.MobileServices.Managed.dll">
       <PackagePath>Microsoft.WindowsAzure.MobileServices.Managed.dll</PackagePath>
@@ -58,7 +58,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\bin\Debug\UserInput.xaml">
       <PackagePath>UserInput.xaml</PackagePath>
-      <Modified>2012-11-11T01:15:34.536</Modified>
+      <Modified>2012-11-11T02:20:25.920</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\bin\Debug\Common\Task.xaml">
       <PackagePath>Common\Task.xaml</PackagePath>
@@ -70,11 +70,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\bin\Debug\MainPage.xaml">
       <PackagePath>MainPage.xaml</PackagePath>
-      <Modified>2012-11-11T01:06:03.565</Modified>
+      <Modified>2012-11-11T02:33:39.357</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-11-11T01:19:34.835</Modified>
+      <Modified>2012-11-11T02:33:01.551</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

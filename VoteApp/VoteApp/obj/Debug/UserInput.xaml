@@ -8,7 +8,51 @@
     mc:Ignorable="d">
 
     <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
-
+    	<Grid.RowDefinitions>
+    		<RowDefinition Height="50"/>
+    		<RowDefinition Height="120"/>
+    		<RowDefinition Height="40*"/>
+    		<RowDefinition Height="45*"/>
+    		<RowDefinition Height="50*"/>
+    		<RowDefinition Height="413*"/>
+    		<RowDefinition Height="50"/>
+    	</Grid.RowDefinitions>
+    	<Grid.ColumnDefinitions>
+    		<ColumnDefinition Width="50"/>
+    		<ColumnDefinition Width="250"/>
+    		<ColumnDefinition/>
+    		<ColumnDefinition Width="240"/>
+    		<ColumnDefinition Width="240"/>
+    		<ColumnDefinition Width="50"/>
+    	</Grid.ColumnDefinitions>
+    	<StackPanel x:Name="title" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="4" Height="120" VerticalAlignment="Top">
+    		<TextBlock TextWrapping="Wrap" Text="VoteAPP" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="64" FontFamily="Buxton Sketch" Style="{StaticResource HeaderTextStyle}"/>
+    		<TextBlock TextWrapping="Wrap" Text="Start a New Poll" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource PageSubheaderTextStyle}"/>
+    	</StackPanel>
+    	<StackPanel x:Name="userID" Grid.Row="2" Grid.Column="1">
+    		<TextBlock TextWrapping="Wrap" Text="User ID" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextStyle}"/>
+    	</StackPanel>
+    	<StackPanel x:Name="questionText" Grid.Row="2" Grid.Column="2">
+    		<TextBlock TextWrapping="Wrap" Text="Question" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TitleTextStyle}"/>
+    	</StackPanel>
+    	<StackPanel x:Name="option1TextWrapper" Grid.Row="2" Grid.Column="3">
+    		<TextBlock TextWrapping="Wrap" Text="Option 1" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextStyle}"/>
+    	</StackPanel>
+    	<StackPanel x:Name="option2TextWrapper" Grid.Row="2" Grid.Column="4">
+    		<TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TitleTextStyle}">
+    			<Run Text="Option 2"/>
+    			<LineBreak/>
+    			<Run/>
+    		</TextBlock>
+    	</StackPanel>
+    	<StackPanel Grid.Row="3" Grid.Column="3">
+    		<RadioButton Content="Yes&#xD;&#xA;" HorizontalAlignment="Center"/>
+    	</StackPanel>
+    	<StackPanel Grid.Row="3" Grid.Column="4">
+    		<RadioButton Content="No&#xD;&#xA;" HorizontalAlignment="Center"/>
+    	</StackPanel>
+    	<StackPanel x:Name="userIDTextString" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"/>
+    	<StackPanel x:Name="questionTextString" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Grid.Row="4" Grid.Column="2"/>
     </Grid>
 </Page>
 
