@@ -52,6 +52,6 @@
     		<RadioButton Content="No&#xD;&#xA;" HorizontalAlignment="Center"/>
     	</StackPanel>
     	<StackPanel x:Name="userIDTextString" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.Column="1"/>
-    	<StackPanel x:Name="questionTextString" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Grid.Row="4" Grid.Column="2"/>
+    	<StackPanel x:Name="questionTextString" HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Grid.Row="4" Grid.Column="2" DoubleTapped="questionTextString_DoubleTapped"/>
     </Grid>
 </Page>

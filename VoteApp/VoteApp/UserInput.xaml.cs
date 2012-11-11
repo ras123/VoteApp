@@ -34,5 +34,11 @@ namespace VoteApp
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
         }
+
+        private void questionTextString_DoubleTapped(object sender, Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs e)
+        {
+        	userIDTextString.Text = "Hello Ras, work harder!";
+			
+        }
     }
 }

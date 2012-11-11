@@ -26,6 +26,8 @@ namespace VoteApp
 
         [DataMember(Name = "complete")]
         public bool Complete { get; set; }
+
+        string userInputText;
     }
 
     public sealed partial class MainPage : Page
@@ -46,7 +48,7 @@ namespace VoteApp
             // This code inserts a new TodoItem into the database. When the operation completes
             // and Mobile Services has assigned an Id, the item is added to the CollectionView
             await todoTable.InsertAsync(todoItem);
-            items.Add(todoItem);                        
+            items.Add(todoItem); 
         }
 
         private void RefreshTodoItems()
@@ -117,6 +119,27 @@ namespace VoteApp
                 dialog.Commands.Add(new UICommand("OK"));
                 await dialog.ShowAsync();
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            userIDTextString.Text = "Hello Susan!";
+        }
+
+        private void NoRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            questionTextField.Text = "";
+        }
+
+        private async void YesRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            // Need to get the user name here..
+            //questionTextField.Text = Windows.System.UserProfile.UserInformation.GetDisplayNameAsync().ToString();//s +" clicked \"Yes\"";
+        }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            //userInputText = questionTextField.Text;
         }
     }
 }
