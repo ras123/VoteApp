@@ -1,3 +1,4 @@
+﻿
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Popups;
 
 namespace VoteApp
 {    
@@ -89,7 +91,34 @@ namespace VoteApp
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            await Authenticate();
             RefreshTodoItems();
+        }
+
+        private MobileServiceUser user;
+        private async System.Threading.Tasks.Task Authenticate()
+        {
+            while (user == null)
+            {
+                string message;
+                try
+                {
+                    user = await App.MobileService
+                        .LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount);
+                    message =
+                        string.Format("You are now logged in - {0}", user.UserId);
+                }
+                catch (InvalidOperationException)
+                {
+                    message = "You must log in. Login Required";
+                }
+
+
+                var dialog = new MessageDialog(message);
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
         }
     }
 }
+>>>>>>> c5703c399efd4112f0d6fac37b42be7a8603d6ba
