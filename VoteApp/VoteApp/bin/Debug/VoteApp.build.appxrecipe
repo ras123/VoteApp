@@ -1,56 +1,59 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Machine>RAS_WIN8</Machine>
-    <WindowsUser>Rastislav</WindowsUser>
+    <Machine>livingroom-pc</Machine>
+    <WindowsUser>Mike</WindowsUser>
     <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
     <PackageArchitecture>neutral</PackageArchitecture>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Rastislav\Downloads\VoteApp\VoteApp\bin\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\bin\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Rastislav\Downloads\VoteApp\VoteApp\bin\Debug\VoteApp.exe">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\bin\Debug\VoteApp.exe">
       <PackagePath>VoteApp.exe</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Rastislav\Downloads\VoteApp\VoteApp\bin\Debug\VoteApp.pdb">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\bin\Debug\VoteApp.pdb">
       <PackagePath>VoteApp.pdb</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\MobileServicesManagedClient\0.2.0.0\References\CommonConfiguration\neutral\Microsoft.WindowsAzure.MobileServices.Managed.dll">
       <PackagePath>Microsoft.WindowsAzure.MobileServices.Managed.dll</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Rastislav\Downloads\VoteApp\VoteApp\Assets\Logo.png">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Rastislav\Downloads\VoteApp\VoteApp\Assets\SmallLogo.png">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\Assets\SmallLogo.png">
       <PackagePath>Assets\SmallLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Rastislav\Downloads\VoteApp\VoteApp\Assets\SplashScreen.png">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\Assets\SplashScreen.png">
       <PackagePath>Assets\SplashScreen.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Rastislav\Downloads\VoteApp\VoteApp\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Rastislav\Downloads\VoteApp\VoteApp\bin\Debug\App.xaml">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\bin\Debug\App.xaml">
       <PackagePath>App.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Rastislav\Downloads\VoteApp\VoteApp\bin\Debug\Common\Task.xaml">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\bin\Debug\UserInput.xaml">
+      <PackagePath>UserInput.xaml</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\bin\Debug\Common\Task.xaml">
       <PackagePath>Common\Task.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Rastislav\Downloads\VoteApp\VoteApp\bin\Debug\Common\StandardStyles.xaml">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\bin\Debug\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Rastislav\Downloads\VoteApp\VoteApp\bin\Debug\MainPage.xaml">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\bin\Debug\MainPage.xaml">
       <PackagePath>MainPage.xaml</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Rastislav\Downloads\VoteApp\VoteApp\bin\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\bin\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>

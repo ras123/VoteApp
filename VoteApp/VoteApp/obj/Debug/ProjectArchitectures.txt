@@ -1,1 +1,1 @@
-C:\Users\Rastislav\Downloads\VoteApp\VoteApp\VoteApp.csproj;neutral
+C:\Users\Mike\Documents\GitHub\VoteApp\VoteApp\VoteApp\VoteApp.csproj;neutral

@@ -6,3 +6,4 @@ App.xaml
 Common\StandardStyles.xaml
 Common\Task.xaml
 MainPage.xaml
+UserInput.xaml
