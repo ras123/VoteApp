@@ -5,7 +5,7 @@
     <WindowsUser>Mike</WindowsUser>
     <SolutionConfiguration>Debug|Win32</SolutionConfiguration>
     <PackageArchitecture>x86</PackageArchitecture>
-    <RegisteredManifestChecksum>5FC222AD2D679FE83B7ABABA7D24E3142891CB5140D44F6E5C20499CF418F735</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>EC44CD0497F09238C58BA58D5BC8F61F565D2CACB853D860E2761F674A70678B</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>091964b9-0081-427e-bfbf-5053c6c42c2a_1.0.0.0_x86__dg3rhm3j3sdc0</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>091964b9-0081-427e-bfbf-5053c6c42c2a_dg3rhm3j3sdc0!App</RegisteredUserModeAppID>
     <RegisteredPackageID>091964b9-0081-427e-bfbf-5053c6c42c2a</RegisteredPackageID>
@@ -13,60 +13,60 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\Mike\Desktop\VoteAPP\Debug\VoteAPP\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\Mike\Documents\GitHub\VoteApp\Debug\VoteAPP\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2012-11-10T21:03:50.185</Modified>
+      <Modified>2012-11-10T23:01:27.438</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\Mike\Desktop\VoteAPP\Debug\VoteAPP\VoteAPP.exe">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\Debug\VoteAPP\VoteAPP.exe">
       <PackagePath>VoteAPP.exe</PackagePath>
-      <Modified>2012-11-10T21:36:26.923</Modified>
+      <Modified>2012-11-11T00:27:13.532</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Mike\Desktop\VoteAPP\Debug\VoteAPP\VoteAPP.pdb">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\Debug\VoteAPP\VoteAPP.pdb">
       <PackagePath>VoteAPP.pdb</PackagePath>
-      <Modified>2012-11-10T21:36:27.338</Modified>
+      <Modified>2012-11-11T00:27:14.109</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Mike\Desktop\VoteAPP\Debug\VoteAPP\VoteAPP.winmd">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\Debug\VoteAPP\VoteAPP.winmd">
       <PackagePath>VoteAPP.winmd</PackagePath>
-      <Modified>2012-11-10T21:36:24.006</Modified>
+      <Modified>2012-11-11T00:27:08.666</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Mike\Desktop\VoteAPP\VoteAPP\Assets\Logo.png">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteAPP\Assets\Logo.png">
       <PackagePath>Assets\Logo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-11-10T21:36:08.961</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Mike\Desktop\VoteAPP\VoteAPP\Assets\SmallLogo.png">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteAPP\Assets\SmallLogo.png">
       <PackagePath>Assets\SmallLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-03-16T04:42:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Mike\Desktop\VoteAPP\VoteAPP\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteAPP\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-03-16T04:42:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Mike\Desktop\VoteAPP\VoteAPP\Assets\SplashScreen.png">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\VoteAPP\Assets\SplashScreen.png">
       <PackagePath>Assets\SplashScreen.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2012-03-16T04:42:52.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Mike\Desktop\VoteAPP\Debug\VoteAPP\App.xaml">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\Debug\VoteAPP\App.xaml">
       <PackagePath>App.xaml</PackagePath>
       <Modified>2012-11-10T20:53:02.757</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Mike\Desktop\VoteAPP\Debug\VoteAPP\Common\StandardStyles.xaml">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\Debug\VoteAPP\Common\StandardStyles.xaml">
       <PackagePath>Common\StandardStyles.xaml</PackagePath>
       <Modified>2012-06-27T00:19:20.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Mike\Desktop\VoteAPP\Debug\VoteAPP\MainPage.xaml">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\Debug\VoteAPP\MainPage.xaml">
       <PackagePath>MainPage.xaml</PackagePath>
-      <Modified>2012-11-10T20:53:02.740</Modified>
+      <Modified>2012-11-11T00:26:56.889</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Mike\Desktop\VoteAPP\Debug\VoteAPP\resources.pri">
+    <AppxPackagedFile Include="C:\Users\Mike\Documents\GitHub\VoteApp\Debug\VoteAPP\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2012-11-10T21:03:49.996</Modified>
+      <Modified>2012-11-10T23:00:48.551</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -1,1 +1,1 @@
-C:\Users\Mike\Desktop\VoteAPP\VoteAPP\VoteAPP.vcxproj;x86
+C:\Users\Mike\Documents\GitHub\VoteApp\VoteAPP\VoteAPP.vcxproj;x86

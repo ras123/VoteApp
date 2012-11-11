@@ -22,6 +22,18 @@ void ::VoteAPP::MainPage::InitializeComponent()
     // Call LoadComponent on ms-appx:///MainPage.xaml
     ::Windows::UI::Xaml::Application::LoadComponent(this, ref new ::Windows::Foundation::Uri(L"ms-appx:///MainPage.xaml"), ::Windows::UI::Xaml::Controls::Primitives::ComponentResourceLocation::Application);
 
+    // Get the Grid named 'Grid1'
+    Grid1 = safe_cast<::Windows::UI::Xaml::Controls::Grid^>(static_cast<Windows::UI::Xaml::IFrameworkElement^>(this)->FindName(L"Grid1"));
+    // Get the TextBlock named 'TitleText'
+    TitleText = safe_cast<::Windows::UI::Xaml::Controls::TextBlock^>(static_cast<Windows::UI::Xaml::IFrameworkElement^>(this)->FindName(L"TitleText"));
+    // Get the Grid named 'Grid2'
+    Grid2 = safe_cast<::Windows::UI::Xaml::Controls::Grid^>(static_cast<Windows::UI::Xaml::IFrameworkElement^>(this)->FindName(L"Grid2"));
+    // Get the ListView named 'ItemListView'
+    ItemListView = safe_cast<::Windows::UI::Xaml::Controls::ListView^>(static_cast<Windows::UI::Xaml::IFrameworkElement^>(this)->FindName(L"ItemListView"));
+    // Get the Grid named 'Grid3'
+    Grid3 = safe_cast<::Windows::UI::Xaml::Controls::Grid^>(static_cast<Windows::UI::Xaml::IFrameworkElement^>(this)->FindName(L"Grid3"));
+    // Get the WebView named 'ContentView'
+    ContentView = safe_cast<::Windows::UI::Xaml::Controls::WebView^>(static_cast<Windows::UI::Xaml::IFrameworkElement^>(this)->FindName(L"ContentView"));
 }
 
 void ::VoteAPP::MainPage::Connect(int connectionId, Platform::Object^ target)

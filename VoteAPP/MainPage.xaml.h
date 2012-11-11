@@ -6,6 +6,7 @@
 #pragma once
 
 #include "MainPage.g.h"
+#include "DataTypes.h"
 
 namespace VoteAPP
 {
@@ -19,5 +20,9 @@ namespace VoteAPP
 
 	protected:
 		virtual void OnNavigatedTo(Windows::UI::Xaml::Navigation::NavigationEventArgs^ e) override;
+
+	private:
+		void GetCompareItemData(Platform::String^ feedUriString);
+		ItemFeed^ itemFeed;
 	};
 }

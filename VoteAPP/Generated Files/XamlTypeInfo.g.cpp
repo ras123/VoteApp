@@ -62,6 +62,21 @@
         return ref new XamlSystemBaseType(typeName);
     }
 
+    if (typeName == L"Object")
+    {
+        return ref new XamlSystemBaseType(typeName);
+    }
+
+    if (typeName == L"Windows.Foundation.Uri")
+    {
+        return ref new XamlSystemBaseType(typeName);
+    }
+
+    if (typeName == L"String")
+    {
+        return ref new XamlSystemBaseType(typeName);
+    }
+
     if (typeName == L"VoteAPP.MainPage")
     {
         ::XamlTypeInfo::InfoProvider::XamlUserType^ userType = ref new ::XamlTypeInfo::InfoProvider::XamlUserType(this, typeName, GetXamlTypeByName(L"Windows.UI.Xaml.Controls.Page"));
@@ -74,13 +89,222 @@
         return userType;
     }
 
+    if (typeName == L"VoteAPP.CompareItem")
+    {
+        ::XamlTypeInfo::InfoProvider::XamlUserType^ userType = ref new ::XamlTypeInfo::InfoProvider::XamlUserType(this, typeName, GetXamlTypeByName(L"Object"));
+        userType->KindOfType = ::Windows::UI::Xaml::Interop::TypeKind::Custom;
+        userType->Activator =
+            []() -> Platform::Object^ 
+            {
+                return ref new ::VoteAPP::CompareItem(); 
+            };
+        userType->AddMemberName(L"Link");
+        userType->AddMemberName(L"Content");
+        userType->AddMemberName(L"Price");
+        userType->AddMemberName(L"Title");
+        userType->SetIsBindable();
+        return userType;
+    }
+
+    if (typeName == L"VoteAPP.ItemFeed")
+    {
+        ::XamlTypeInfo::InfoProvider::XamlUserType^ userType = ref new ::XamlTypeInfo::InfoProvider::XamlUserType(this, typeName, GetXamlTypeByName(L"Object"));
+        userType->KindOfType = ::Windows::UI::Xaml::Interop::TypeKind::Custom;
+        userType->Activator =
+            []() -> Platform::Object^ 
+            {
+                return ref new ::VoteAPP::ItemFeed(); 
+            };
+        userType->AddMemberName(L"PubDate");
+        userType->AddMemberName(L"Description");
+        userType->AddMemberName(L"Items");
+        userType->AddMemberName(L"Title");
+        userType->SetIsBindable();
+        return userType;
+    }
+
+    if (typeName == L"Windows.Foundation.DateTime")
+    {
+        ::XamlTypeInfo::InfoProvider::XamlUserType^ userType = ref new ::XamlTypeInfo::InfoProvider::XamlUserType(this, typeName, GetXamlTypeByName(L"System.ValueType"));
+        userType->KindOfType = ::Windows::UI::Xaml::Interop::TypeKind::Metadata;
+        return userType;
+    }
+
+    if (typeName == L"System.ValueType")
+    {
+        ::XamlTypeInfo::InfoProvider::XamlUserType^ userType = ref new ::XamlTypeInfo::InfoProvider::XamlUserType(this, typeName, GetXamlTypeByName(L"Object"));
+        userType->KindOfType = ::Windows::UI::Xaml::Interop::TypeKind::Metadata;
+        return userType;
+    }
+
+    if (typeName == L"Windows.Foundation.Collections.IVector<VoteAPP.CompareItem>")
+    {
+        ::XamlTypeInfo::InfoProvider::XamlUserType^ userType = ref new ::XamlTypeInfo::InfoProvider::XamlUserType(this, typeName, nullptr);
+        userType->KindOfType = ::Windows::UI::Xaml::Interop::TypeKind::Metadata;
+        userType->CollectionAdd =
+            [](Object^ instance, Object^ item) -> void
+            {
+                auto collection = (Windows::Foundation::Collections::IVector<::VoteAPP::CompareItem^>^)instance;
+                auto newItem = (VoteAPP::CompareItem^)item;
+                collection->Append(newItem);
+            };
+        return userType;
+    }
+
     return nullptr;
 }
 
 ::Windows::UI::Xaml::Markup::IXamlMember^ ::XamlTypeInfo::InfoProvider::XamlTypeInfoProvider::CreateXamlMember(::Platform::String^ longMemberName)
 {
-    // No Local Properties
-    (void)longMemberName; // Unused parameter
+    if (longMemberName == L"VoteAPP.CompareItem.Link")
+    {
+        ::XamlTypeInfo::InfoProvider::XamlMember^ xamlMember = ref new ::XamlTypeInfo::InfoProvider::XamlMember(this, L"Link", L"Windows.Foundation.Uri");
+        xamlMember->Getter =
+            [](Object^ instance) -> Object^
+            {
+                auto that = (::VoteAPP::CompareItem^)instance;
+                return that->Link;
+            };
+
+        xamlMember->Setter =
+            [](Object^ instance, Object^ value) -> void
+            {
+                auto that = (::VoteAPP::CompareItem^)instance;
+                that->Link = (::Windows::Foundation::Uri^)value;
+            };
+        return xamlMember;
+    }
+
+    if (longMemberName == L"VoteAPP.CompareItem.Content")
+    {
+        ::XamlTypeInfo::InfoProvider::XamlMember^ xamlMember = ref new ::XamlTypeInfo::InfoProvider::XamlMember(this, L"Content", L"String");
+        xamlMember->Getter =
+            [](Object^ instance) -> Object^
+            {
+                auto that = (::VoteAPP::CompareItem^)instance;
+                return that->Content;
+            };
+
+        xamlMember->Setter =
+            [](Object^ instance, Object^ value) -> void
+            {
+                auto that = (::VoteAPP::CompareItem^)instance;
+                that->Content = (::Platform::String^)value;
+            };
+        return xamlMember;
+    }
+
+    if (longMemberName == L"VoteAPP.CompareItem.Price")
+    {
+        ::XamlTypeInfo::InfoProvider::XamlMember^ xamlMember = ref new ::XamlTypeInfo::InfoProvider::XamlMember(this, L"Price", L"String");
+        xamlMember->Getter =
+            [](Object^ instance) -> Object^
+            {
+                auto that = (::VoteAPP::CompareItem^)instance;
+                return that->Price;
+            };
+
+        xamlMember->Setter =
+            [](Object^ instance, Object^ value) -> void
+            {
+                auto that = (::VoteAPP::CompareItem^)instance;
+                that->Price = (::Platform::String^)value;
+            };
+        return xamlMember;
+    }
+
+    if (longMemberName == L"VoteAPP.CompareItem.Title")
+    {
+        ::XamlTypeInfo::InfoProvider::XamlMember^ xamlMember = ref new ::XamlTypeInfo::InfoProvider::XamlMember(this, L"Title", L"String");
+        xamlMember->Getter =
+            [](Object^ instance) -> Object^
+            {
+                auto that = (::VoteAPP::CompareItem^)instance;
+                return that->Title;
+            };
+
+        xamlMember->Setter =
+            [](Object^ instance, Object^ value) -> void
+            {
+                auto that = (::VoteAPP::CompareItem^)instance;
+                that->Title = (::Platform::String^)value;
+            };
+        return xamlMember;
+    }
+
+    if (longMemberName == L"VoteAPP.ItemFeed.PubDate")
+    {
+        ::XamlTypeInfo::InfoProvider::XamlMember^ xamlMember = ref new ::XamlTypeInfo::InfoProvider::XamlMember(this, L"PubDate", L"Windows.Foundation.DateTime");
+        xamlMember->Getter =
+            [](Object^ instance) -> Object^
+            {
+                auto that = (::VoteAPP::ItemFeed^)instance;
+                auto value = ref new ::Platform::Box<::Windows::Foundation::DateTime>(that->PubDate);
+                return value;
+            };
+
+        xamlMember->Setter =
+            [](Object^ instance, Object^ value) -> void
+            {
+                auto that = (::VoteAPP::ItemFeed^)instance;
+                auto boxedValue = (::Platform::IBox<::Windows::Foundation::DateTime>^)value;
+                that->PubDate = boxedValue->Value;
+            };
+        return xamlMember;
+    }
+
+    if (longMemberName == L"VoteAPP.ItemFeed.Description")
+    {
+        ::XamlTypeInfo::InfoProvider::XamlMember^ xamlMember = ref new ::XamlTypeInfo::InfoProvider::XamlMember(this, L"Description", L"String");
+        xamlMember->Getter =
+            [](Object^ instance) -> Object^
+            {
+                auto that = (::VoteAPP::ItemFeed^)instance;
+                return that->Description;
+            };
+
+        xamlMember->Setter =
+            [](Object^ instance, Object^ value) -> void
+            {
+                auto that = (::VoteAPP::ItemFeed^)instance;
+                that->Description = (::Platform::String^)value;
+            };
+        return xamlMember;
+    }
+
+    if (longMemberName == L"VoteAPP.ItemFeed.Items")
+    {
+        ::XamlTypeInfo::InfoProvider::XamlMember^ xamlMember = ref new ::XamlTypeInfo::InfoProvider::XamlMember(this, L"Items", L"Windows.Foundation.Collections.IVector<VoteAPP.CompareItem>");
+        xamlMember->Getter =
+            [](Object^ instance) -> Object^
+            {
+                auto that = (::VoteAPP::ItemFeed^)instance;
+                return that->Items;
+            };
+
+        xamlMember->SetIsReadOnly();
+        return xamlMember;
+    }
+
+    if (longMemberName == L"VoteAPP.ItemFeed.Title")
+    {
+        ::XamlTypeInfo::InfoProvider::XamlMember^ xamlMember = ref new ::XamlTypeInfo::InfoProvider::XamlMember(this, L"Title", L"String");
+        xamlMember->Getter =
+            [](Object^ instance) -> Object^
+            {
+                auto that = (::VoteAPP::ItemFeed^)instance;
+                return that->Title;
+            };
+
+        xamlMember->Setter =
+            [](Object^ instance, Object^ value) -> void
+            {
+                auto that = (::VoteAPP::ItemFeed^)instance;
+                that->Title = (::Platform::String^)value;
+            };
+        return xamlMember;
+    }
+
     return nullptr;
 }
 

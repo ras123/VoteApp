@@ -22,13 +22,18 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="VoteAPP.exe" EntryPoint="VoteAPP.App">
-      <VisualElements DisplayName="VoteAPP" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="VoteAPP" ForegroundText="light" BackgroundColor="#464646">
+      <VisualElements DisplayName="VoteAPP" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="VoteAPP Mike and Ras first Windows 8 App." ForegroundText="light" BackgroundColor="#ababab">
         <DefaultTile ShowName="allLogos" />
-        <SplashScreen Image="Assets\SplashScreen.png" />
+        <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#ffffff" />
+        <InitialRotationPreference>
+          <Rotation Preference="landscape" />
+        </InitialRotationPreference>
       </VisualElements>
     </Application>
   </Applications>
   <Capabilities>
+    <Capability Name="removableStorage" />
+    <Capability Name="picturesLibrary" />
     <Capability Name="internetClient" />
   </Capabilities>
   <Dependencies>

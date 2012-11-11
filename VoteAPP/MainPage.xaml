@@ -7,7 +7,35 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+    <!--Grid Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+    </Grid-->
+    <Grid Name="Grid1" Background="{StaticResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="140" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
+        <TextBlock x:Name="TitleText" Text="Main Title of Vote APP"
+            VerticalAlignment="Center" FontSize="48" Margin="56,0,0,0"/>
+
+        <Grid Name="Grid2" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <ListView x:Name="ItemListView"></ListView>
+            <Grid Name="Grid3" Grid.Column="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Vote Post Title" FontSize="24"/>
+                <WebView x:Name="ContentView" Grid.Row="1" Margin="0,5,20,20"/>
+            </Grid>
+        </Grid>
     </Grid>
+
 </Page>
+
