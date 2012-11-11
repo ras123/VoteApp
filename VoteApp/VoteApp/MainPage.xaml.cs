@@ -22,11 +22,8 @@ namespace VoteApp
     {
         public int Id { get; set; }
 
-        //[DataMember(Name = "text")]
-        //public string Text { get; set; }
-
-        [DataMember(Name = "complete")]
-        public bool Complete { get; set; }
+        //[DataMember(Name = "complete")]
+        //public bool Complete { get; set; }
 
         [DataMember(Name = "Question")]
         public string Question { get; set; }
@@ -45,6 +42,7 @@ namespace VoteApp
 
         public string userInputText = "";
         private string answer = "";
+        private string userId = "";
 
         public MainPage()
         {
@@ -64,7 +62,7 @@ namespace VoteApp
             // This code refreshes the entries in the list view be querying the TodoItems table.
             // The query excludes completed TodoItems
             items = todoTable
-                .Where(todoItem => todoItem.Complete == false)
+                //.Where(todoItem => todoItem.Complete == false)
                 .ToCollectionView();
             
             // Commented - MZ
