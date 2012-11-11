@@ -15,7 +15,12 @@
             <RowDefinition Height="40*"/>
             <RowDefinition Height="58*"/>
             <RowDefinition Height="37*"/>
-            <RowDefinition Height="413*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="85*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="65*"/>
+            <RowDefinition Height="55*"/>
+            <RowDefinition Height="98*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -30,56 +35,62 @@
             <TextBlock TextWrapping="Wrap" Text="VoteAPP" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="64" FontFamily="Buxton Sketch" Style="{StaticResource HeaderTextStyle}"/>
             <TextBlock TextWrapping="Wrap" Text="Start a New Poll" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource PageSubheaderTextStyle}"/>
         </StackPanel>
-        <StackPanel x:Name="userID" Grid.Row="2" Grid.Column="1">
-            <TextBlock TextWrapping="Wrap" Text="User ID" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextStyle}"/>
-        </StackPanel>
-        <StackPanel x:Name="questionText" Grid.Row="2" Grid.Column="2">
-            <TextBlock TextWrapping="Wrap" Text="Question" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TitleTextStyle}"/>
-        </StackPanel>
-        <StackPanel x:Name="option1TextWrapper" Grid.Row="2" Grid.Column="3">
-            <TextBlock TextWrapping="Wrap" Text="Option 1" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextStyle}"/>
-        </StackPanel>
-        <StackPanel x:Name="option2TextWrapper" Grid.Row="2" Grid.Column="4">
-            <TextBlock TextWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource TitleTextStyle}">
-    			<Run Text="Option 2"/>
-    			<LineBreak/>
-    			<Run/>
+        <StackPanel x:Name="userID" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Width="82" Height="40" VerticalAlignment="Bottom">
+            <TextBlock TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource SubheaderTextStyle}">
+            	<Run Text="Friend"/>
+            	<LineBreak/>
+            	<Run/>
             </TextBlock>
         </StackPanel>
-        <StackPanel Grid.Row="3" Grid.Column="3">
-            <RadioButton x:Name="YesRadioButton" Content="Yes&#xD;&#xA;" HorizontalAlignment="Center" GroupName="RadioButtonGroup" Checked="YesRadioButton_Checked" VerticalAlignment="Center"/>
+        <StackPanel x:Name="questionText" Grid.Row="2" Grid.Column="2">
+            <TextBlock TextWrapping="Wrap" Text="Question" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource SubheaderTextStyle}"/>
         </StackPanel>
-        <StackPanel Grid.Row="3" Grid.Column="4">
-            <RadioButton x:Name="NoRadioButton" Content="No&#xD;&#xA;" HorizontalAlignment="Center" GroupName="RadioButtonGroup" Checked="NoRadioButton_Checked"/>
+        <StackPanel x:Name="option2TextWrapper" Grid.Row="2" Grid.Column="4"/>
+        <StackPanel Grid.Column="3" Grid.Row="6" VerticalAlignment="Top" Height="44"/>
+        <StackPanel Grid.Row="6" Grid.Column="4" VerticalAlignment="Top" Height="44"/>
+        <StackPanel x:Name="pendingQuestions" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,0,30">
+        	<ListView x:Name="PendingQuestions" RenderTransformOrigin="0.5,0.5">
+        		<ListView.RenderTransform>
+        			<CompositeTransform ScaleY="-1"/>
+        		</ListView.RenderTransform>
+        	</ListView>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Height="14" Margin="125,22" Width="0">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" Height="14" Margin="60,22" Width="0">
         	<TextBlock x:Name="userIDTextString" TextWrapping="Wrap"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="2">
         	<TextBlock x:Name="questionTextString" TextWrapping="Wrap"/>
         </StackPanel>
-        <TextBox x:Name="questionTextField" Grid.Column="2" HorizontalAlignment="Center" Margin="0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="512" Height="32" MinHeight="0" MinWidth="0" HorizontalContentAlignment="Left" Canvas.ZIndex="1"/>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.Column="2">
+        <TextBox x:Name="questionTextField" Grid.Column="2" HorizontalAlignment="Center" Margin="12,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="512" Height="32" MinHeight="0" MinWidth="0" HorizontalContentAlignment="Left" Canvas.ZIndex="1"/>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.Column="2" Margin="229,2,229,1" Height="34" Width="78">
         	<Button x:Name="SubmitButton" Content="Submit" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.ZIndex="-2" Click="SubmitButton_Click"/>
         </StackPanel>
-
-        <StackPanel x:Name="pendingQuestions" Grid.Row="5" Grid.Column="1" Margin="0,0,480,356" Grid.ColumnSpan="2">
-            <TextBlock TextWrapping="Wrap" Text="Pending Questions" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextStyle}"/>
-        </StackPanel>
         
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1" Margin="10,29,112,132" Width="1144" Grid.ColumnSpan="4">
-            <ListView x:Name="ListItems" Margin="-22,10,10,0" Height="242">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <!--<CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" Checked="CheckBoxComplete_Checked" Content="{Binding Question}" Margin="10,5" VerticalAlignment="Center"/>-->
-                            <TextBlock TextWrapping="Wrap" Text="{Binding Question}" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextStyle}"/>
-                            <TextBlock TextWrapping="Wrap" Text="       " HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextStyle}"/>
-                            <TextBlock TextWrapping="Wrap" Text="{Binding Answer}" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextStyle}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+        <StackPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Margin="0,0,0,16" Height="30">
+        	<TextBlock x:Name="TextBlock" TextWrapping="Wrap" Text="Pending Questions" Style="{StaticResource SubheaderTextStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="7" Grid.Column="1">
+        	<TextBlock TextWrapping="Wrap" Text="Answered Questions" Style="{StaticResource SubheaderTextStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="8" Grid.Column="1">
+        	<ListView x:Name="AnsweredQuestions" Height="50"/>
+        </StackPanel>
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="9" Grid.Column="1">
+        	<TextBlock TextWrapping="Wrap" Text="Friends Want To Know" Style="{StaticResource SubheaderTextStyle}"/>
+        </StackPanel>
+        <StackPanel Grid.ColumnSpan="2" Grid.Row="10" Grid.Column="1">
+        	<ListView x:Name="FriendsQuestions" Height="80"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1">
+        	<TextBox x:Name="FriendBox" TextWrapping="Wrap"/>
+        </StackPanel>
+        <StackPanel Grid.Row="8" Grid.Column="3"/>
+        <StackPanel Grid.Row="8" Grid.Column="4"/>
+        <StackPanel Grid.Row="10" Grid.Column="3">
+        	<RadioButton Content="Yes" VerticalAlignment="Stretch" HorizontalAlignment="Center" GroupName="FreindsWantToKnowGroup"/>
+        </StackPanel>
+        <StackPanel Grid.Row="10" Grid.Column="4">
+        	<RadioButton Content="No" VerticalAlignment="Stretch" HorizontalAlignment="Center" GroupName="FreindsWantToKnowGroup"/>
         </StackPanel>
     </Grid>
 

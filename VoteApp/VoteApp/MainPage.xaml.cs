@@ -65,7 +65,7 @@ namespace VoteApp
                 .ToCollectionView();
             
             // Commented - MZ
-            ListItems.ItemsSource = items;
+            PendingQuestions.ItemsSource = items;
         }
 
         private async void UpdateCheckedTodoItem(QuestionItem item)
@@ -135,6 +135,7 @@ namespace VoteApp
                     string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
                     var message = string.Format("You are now logged in - {0}", loginResult.UserId);
                     userId = loginResult.UserId;
+                    userIDTextString.Text = userId;
                     var dialog = new MessageDialog(message, title);
                     dialog.Commands.Add(new UICommand("OK"));
                     await dialog.ShowAsync();
