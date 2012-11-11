@@ -62,5 +62,25 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.Column="2">
         	<Button x:Name="SubmitButton" Content="Submit" HorizontalAlignment="Center" VerticalAlignment="Center" Canvas.ZIndex="-2" Click="SubmitButton_Click"/>
         </StackPanel>
+
+        <StackPanel x:Name="pendingQuestions" Grid.Row="5" Grid.Column="1" Margin="0,0,480,356" Grid.ColumnSpan="2">
+            <TextBlock TextWrapping="Wrap" Text="Pending Questions" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextStyle}"/>
+        </StackPanel>
+        
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1" Margin="10,29,112,132" Width="1144" Grid.ColumnSpan="4">
+            <ListView x:Name="ListItems" Margin="-22,10,10,0" Height="242">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <!--<CheckBox Name="CheckBoxComplete" IsChecked="{Binding Complete, Mode=TwoWay}" Checked="CheckBoxComplete_Checked" Content="{Binding Question}" Margin="10,5" VerticalAlignment="Center"/>-->
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Question}" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextStyle}"/>
+                            <TextBlock TextWrapping="Wrap" Text="       " HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextStyle}"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Answer}" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextStyle}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
     </Grid>
+
 </Page>
