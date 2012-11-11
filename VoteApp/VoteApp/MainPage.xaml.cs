@@ -1,19 +1,22 @@
-﻿﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using System;                               
+using System.Collections.Generic;           
+using System.IO;                            
+using System.Linq;                          
+using System.Runtime.Serialization;         
 using Microsoft.WindowsAzure.MobileServices;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using Windows.UI.Popups;
+using Windows.Foundation;                   
+using Windows.Foundation.Collections;       
+using Windows.UI.Xaml;                      
+using Windows.UI.Xaml.Controls;             
+using Windows.UI.Xaml.Controls.Primitives;  
+using Windows.UI.Xaml.Data;                 
+using Windows.UI.Xaml.Input;                
+using Windows.UI.Xaml.Media;                
+using Windows.UI.Xaml.Navigation;           
+using Windows.UI.Popups;                    
+using Microsoft.Live;                       
+using Windows.UI.Popups;                    
+
 
 namespace VoteApp
 {    
@@ -30,6 +33,43 @@ namespace VoteApp
         
     }
 
+    private LiveConnectSession session;
+
+    private async System.Threading.Tasks.Task Authenticate()
+    {
+        LiveAuthClient liveIdClient = new LiveAuthClient("<< INSERT REDIRECT DOMAIN HERE >>");
+
+        while (session == null)
+        {
+            // Force a logout to make it easier to test with multiple Microsoft Accounts
+            if (liveIdClient.CanLogout)
+                liveIdClient.Logout();
+
+            LiveLoginResult result = await liveIdClient.LoginAsync(new[] { "wl.basic" });
+            if (result.Status == LiveConnectSessionStatus.Connected)
+            {
+                session = result.Session;
+                LiveConnectClient client = new LiveConnectClient(result.Session);
+                LiveOperationResult meResult = await client.GetAsync("me");
+                MobileServiceUser loginResult = await App.MobileService.LoginAsync(result.Session.AuthenticationToken);
+
+
+                string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
+                var message = string.Format("You are now logged in - {0}", loginResult.UserId);
+                var dialog = new MessageDialog(message, title);
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
+            else
+            {
+                session = null;
+                var dialog = new MessageDialog("You must log in.", "Login Required");
+                dialog.Commands.Add(new UICommand("OK"));
+                await dialog.ShowAsync();
+            }
+        }
+    }
+
     public sealed partial class MainPage : Page
     {
         // MobileServiceCollectionView implements ICollectionView (useful for databinding to lists) and 
@@ -37,6 +77,8 @@ namespace VoteApp
         private MobileServiceCollectionView<TodoItem> items;
 
         private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
+
+        public string userInputText = "";
 
         public MainPage()
         {
@@ -48,7 +90,7 @@ namespace VoteApp
             // This code inserts a new TodoItem into the database. When the operation completes
             // and Mobile Services has assigned an Id, the item is added to the CollectionView
             await todoTable.InsertAsync(todoItem);
-            items.Add(todoItem);                        
+            items.Add(todoItem); 
         }
 
         private void RefreshTodoItems()
@@ -119,6 +161,18 @@ namespace VoteApp
                 dialog.Commands.Add(new UICommand("OK"));
                 await dialog.ShowAsync();
             }
+        }
+
+        private async void YesRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            // Need to get the user name here..
+            //questionTextField.Text = Windows.System.UserProfile.UserInformation.GetDisplayNameAsync().ToString();//s +" clicked \"Yes\"";
+        }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.userInputText = questionTextField.Text;
+
         }
     }
 }
