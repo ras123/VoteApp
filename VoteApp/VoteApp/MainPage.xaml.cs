@@ -88,7 +88,8 @@ namespace VoteApp
             UpdateCheckedTodoItem(item);
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             await Authenticate();
             RefreshTodoItems();
@@ -111,7 +112,6 @@ namespace VoteApp
                 {
                     message = "You must log in. Login Required";
                 }
-
 
                 var dialog = new MessageDialog(message);
                 dialog.Commands.Add(new UICommand("OK"));
