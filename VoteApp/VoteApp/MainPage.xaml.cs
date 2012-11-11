@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;                
 using Windows.UI.Xaml.Navigation;           
 using Windows.UI.Popups;                    
-using Microsoft.Live;                       
+//using Microsoft.Live;                             We should need this?
 using Windows.UI.Popups;                    
 
 
@@ -31,6 +31,17 @@ namespace VoteApp
         public bool Complete { get; set; }
     }
 
+
+/*
+ *  Ras, you can get live data like username and email contacts throught this.
+ *  I got the info from a Microsoft guy when you were sleeping.
+ *  He pointed me to this tutorial.
+ *  https://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
+ *  You need the live skd.
+ *  http://msdn.microsoft.com/en-US/live/ff621310
+ */
+
+/*
     private LiveConnectSession session;
 
     private async System.Threading.Tasks.Task Authenticate()
@@ -67,6 +78,7 @@ namespace VoteApp
             }
         }
     }
+ */
 
     public sealed partial class MainPage : Page
     {
@@ -159,6 +171,12 @@ namespace VoteApp
                 dialog.Commands.Add(new UICommand("OK"));
                 await dialog.ShowAsync();
             }
+        }
+
+        private async void NoRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            // Need to get the user name here..
+            //questionTextField.Text = Windows.System.UserProfile.UserInformation.GetDisplayNameAsync().ToString();//s +" clicked \"Yes\"";
         }
 
         private async void YesRadioButton_Checked(object sender, RoutedEventArgs e)
