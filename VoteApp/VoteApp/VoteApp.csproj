@@ -141,6 +141,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <SDKReference Include="LiveSDKXAML, Version=5.0">
+      <Name>Live SDK</Name>
+    </SDKReference>
     <SDKReference Include="MobileServicesManagedClient, Version=0.2.0.0">
       <Name>Windows Azure Mobile Services Managed Client</Name>
     </SDKReference>

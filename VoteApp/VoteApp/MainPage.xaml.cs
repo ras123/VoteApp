@@ -12,10 +12,10 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;                 
 using Windows.UI.Xaml.Input;                
 using Windows.UI.Xaml.Media;                
-using Windows.UI.Xaml.Navigation;           
+using Windows.UI.Xaml.Navigation;
+using Microsoft.Live;
 using Windows.UI.Popups;                    
-using Microsoft.Live;             
-
+             
 namespace VoteApp
 {    
     public class TodoItem
@@ -23,7 +23,7 @@ namespace VoteApp
         public int Id { get; set; }
 
         //[DataMember(Name = "text")]
-        //public string Text { get; set; }
+        public string Text { get; set; }
 
         [DataMember(Name = "complete")]
         public bool Complete { get; set; }
@@ -52,20 +52,21 @@ namespace VoteApp
         }
 
 /*
- *  Ras, you can get live data like username and email contacts throught this.
- *  I got the info from a Microsoft guy when you were sleeping.
+ *  Get live data like username and email contacts throught this.
+ *  Also gets rid of the 
  *  He pointed me to this tutorial.
  *  https://www.windowsazure.com/en-us/develop/mobile/tutorials/single-sign-on-windows-8-dotnet/
  *  You need the live skd.
  *  http://msdn.microsoft.com/en-US/live/ff621310
  */
 
-/*
+    private MobileServiceUser user;
     private LiveConnectSession session;
+    private string liveUsername;
 
     private async System.Threading.Tasks.Task Authenticate()
     {
-        LiveAuthClient liveIdClient = new LiveAuthClient("<< INSERT REDIRECT DOMAIN HERE >>");
+        LiveAuthClient liveIdClient = new LiveAuthClient("https://voteapp.azure-mobile.net");
 
         while (session == null)
         {
@@ -87,9 +88,15 @@ namespace VoteApp
                 var dialog = new MessageDialog(message, title);
                 dialog.Commands.Add(new UICommand("OK"));
                 await dialog.ShowAsync();
+
+
+                // save live user name
+                liveUsername = string.Format("" + meResult.Result["first_name"]);
             }
             else
             {
+                questionTextField.Text = "Not connected";
+
                 session = null;
                 var dialog = new MessageDialog("You must log in.", "Login Required");
                 dialog.Commands.Add(new UICommand("OK"));
@@ -97,7 +104,6 @@ namespace VoteApp
             }
         }
     }
- */
 
         private async void InsertTodoItem(TodoItem todoItem)
         {
@@ -150,32 +156,8 @@ namespace VoteApp
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             // TODO: Disabling authentication for now.
-            //await Authenticate();
+            await Authenticate();
             RefreshTodoItems();
-        }
-
-        private MobileServiceUser user;
-        private async System.Threading.Tasks.Task Authenticate()
-        {
-            while (user == null)
-            {
-                string message;
-                try
-                {
-                    user = await App.MobileService
-                        .LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount);
-                    message =
-                        string.Format("You are now logged in - {0}", user.UserId);
-                }
-                catch (InvalidOperationException)
-                {
-                    message = "You must log in. Login Required";
-                }
-
-                var dialog = new MessageDialog(message);
-                dialog.Commands.Add(new UICommand("OK"));
-                await dialog.ShowAsync();
-            }
         }
 
         private void YesRadioButton_Checked(object sender, RoutedEventArgs e)
