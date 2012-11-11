@@ -150,31 +150,6 @@ namespace VoteApp
         }
 
 
-        /*
-         private MobileServiceUser user;
-         private async System.Threading.Tasks.Task Authenticate()
-        {
-            while (user == null)
-            {
-                string message;
-                try
-                {
-                    user = await App.MobileService
-                        .LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount);
-                    message =
-                        string.Format("You are now logged in - {0}", user.UserId);
-                }
-                catch (InvalidOperationException)
-                {
-                    message = "You must log in. Login Required";
-                }
-
-                var dialog = new MessageDialog(message);
-                dialog.Commands.Add(new UICommand("OK"));
-                await dialog.ShowAsync();
-            }
-        }*/
-
         private void YesRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             // Need to get the user name here..
