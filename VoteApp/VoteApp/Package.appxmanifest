@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="34488Ras.VoteApp" Publisher="CN=6E1106B1-D949-4B26-90EC-078E123BB66A" Version="1.0.0.0" />
+  <Identity Name="34488Ras.VoteApp" Publisher="CN=6E1106B1-D949-4B26-90EC-078E123BB66A" Version="1.0.0.1" />
   <Properties>
     <DisplayName>VoteApp</DisplayName>
     <PublisherDisplayName>Ras</PublisherDisplayName>
@@ -25,7 +25,6 @@
     </Application>
   </Applications>
   <Capabilities>
-    <Capability Name="enterpriseAuthentication" />
     <Capability Name="internetClientServer" />
     <Capability Name="internetClient" />
   </Capabilities>
