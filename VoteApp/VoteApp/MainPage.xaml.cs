@@ -26,6 +26,8 @@ namespace VoteApp
 
         [DataMember(Name = "complete")]
         public bool Complete { get; set; }
+
+        
     }
 
     public sealed partial class MainPage : Page
