@@ -18,12 +18,12 @@ using Microsoft.Live;
 
 namespace VoteApp
 {    
-    public class TodoItem
+    public class QuestionItem
     {
         public int Id { get; set; }
 
-        //[DataMember(Name = "complete")]
-        //public bool Complete { get; set; }
+        [DataMember(Name = "UserId")]
+        public string UserId { get; set; }
 
         [DataMember(Name = "Question")]
         public string Question { get; set; }
@@ -36,9 +36,9 @@ namespace VoteApp
     {
         // MobileServiceCollectionView implements ICollectionView (useful for databinding to lists) and 
         // is integrated with your Mobile Service to make it easy to bind your data to the ListView
-        private MobileServiceCollectionView<TodoItem> items;
+        private MobileServiceCollectionView<QuestionItem> items;
 
-        private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
+        private IMobileServiceTable<QuestionItem> questionTable = App.MobileService.GetTable<QuestionItem>();
 
         public string userInputText = "";
         private string answer = "";
@@ -49,31 +49,30 @@ namespace VoteApp
             this.InitializeComponent();
         }
 
-        private async void InsertTodoItem(TodoItem todoItem)
+        private async void InsertTodoItem(QuestionItem questionItem)
         {
             // This code inserts a new TodoItem into the database. When the operation completes
             // and Mobile Services has assigned an Id, the item is added to the CollectionView
-            await todoTable.InsertAsync(todoItem);
-            items.Add(todoItem); 
+            await questionTable.InsertAsync(questionItem);
+            items.Add(questionItem); 
         }
 
         private void RefreshTodoItems()
         {
             // This code refreshes the entries in the list view be querying the TodoItems table.
-            // The query excludes completed TodoItems
-            items = todoTable
+            items = questionTable
                 //.Where(todoItem => todoItem.Complete == false)
                 .ToCollectionView();
             
             // Commented - MZ
-            //ListItems.ItemsSource = items;
+            ListItems.ItemsSource = items;
         }
 
-        private async void UpdateCheckedTodoItem(TodoItem item)
+        private async void UpdateCheckedTodoItem(QuestionItem item)
         {
             // This code takes a freshly completed TodoItem and updates the database. When the MobileService 
             // responds, the item is removed from the list 
-            await todoTable.UpdateAsync(item);
+            await questionTable.UpdateAsync(item);
             items.Remove(item);
         }
 
@@ -92,7 +91,7 @@ namespace VoteApp
         private void CheckBoxComplete_Checked(object sender, RoutedEventArgs e)
         {
             CheckBox cb = (CheckBox)sender;
-            TodoItem item = cb.DataContext as TodoItem;
+            QuestionItem item = cb.DataContext as QuestionItem;
             UpdateCheckedTodoItem(item);
         }
 
@@ -100,11 +99,11 @@ namespace VoteApp
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             // TODO: Disabling authentication for now.
-            //await Authenticate();
+            await Authenticate();
             RefreshTodoItems();
         }
 
-        /*private LiveConnectSession session;
+        private LiveConnectSession session;
         private async System.Threading.Tasks.Task Authenticate()
         {
             LiveAuthClient liveIdClient = new LiveAuthClient("https://voteapp.azure-mobile.net/");
@@ -126,6 +125,7 @@ namespace VoteApp
 
                     string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
                     var message = string.Format("You are now logged in - {0}", loginResult.UserId);
+                    userId = loginResult.UserId;
                     var dialog = new MessageDialog(message, title);
                     dialog.Commands.Add(new UICommand("OK"));
                     await dialog.ShowAsync();
@@ -138,10 +138,12 @@ namespace VoteApp
                     await dialog.ShowAsync();
                 }
             }
-        }*/
+        }
 
-        private MobileServiceUser user;
-        private async System.Threading.Tasks.Task Authenticate()
+
+        /*
+         private MobileServiceUser user;
+         private async System.Threading.Tasks.Task Authenticate()
         {
             while (user == null)
             {
@@ -162,7 +164,7 @@ namespace VoteApp
                 dialog.Commands.Add(new UICommand("OK"));
                 await dialog.ShowAsync();
             }
-        }
+        }*/
 
         private void YesRadioButton_Checked(object sender, RoutedEventArgs e)
         {
@@ -182,7 +184,7 @@ namespace VoteApp
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             //this.userInputText = questionTextField.Text;
-            var todoItem = new TodoItem { Question = questionTextField.Text, Answer = answer };
+            var todoItem = new QuestionItem { UserId = userId, Question = questionTextField.Text, Answer = answer };
             InsertTodoItem(todoItem);
         }
     }
