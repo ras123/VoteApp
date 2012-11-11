@@ -55,7 +55,9 @@ namespace VoteApp
             items = todoTable
                 .Where(todoItem => todoItem.Complete == false)
                 .ToCollectionView();
-            ListItems.ItemsSource = items;
+            
+            // Commented - MZ
+            //ListItems.ItemsSource = items;
         }
 
         private async void UpdateCheckedTodoItem(TodoItem item)
@@ -73,8 +75,9 @@ namespace VoteApp
 
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
-            var todoItem = new TodoItem { Text = TextInput.Text };
-            InsertTodoItem(todoItem);
+            // Commented - MZ
+            // var todoItem = new TodoItem { Text = TextInput.Text };
+            // InsertTodoItem(todoItem);
         }
 
         private void CheckBoxComplete_Checked(object sender, RoutedEventArgs e)
