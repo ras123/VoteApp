@@ -14,9 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;                
 using Windows.UI.Xaml.Navigation;           
 using Windows.UI.Popups;                    
-//using Microsoft.Live;                             We should need this?
-using Windows.UI.Popups;                    
-
+using Microsoft.Live;             
 
 namespace VoteApp
 {    
@@ -24,13 +22,34 @@ namespace VoteApp
     {
         public int Id { get; set; }
 
-        [DataMember(Name = "text")]
-        public string Text { get; set; }
+        //[DataMember(Name = "text")]
+        //public string Text { get; set; }
 
         [DataMember(Name = "complete")]
         public bool Complete { get; set; }
+
+        [DataMember(Name = "Question")]
+        public string Question { get; set; }
+
+        [DataMember(Name = "Answer")]
+        public string Answer { get; set; }
     }
 
+    public sealed partial class MainPage : Page
+    {
+        // MobileServiceCollectionView implements ICollectionView (useful for databinding to lists) and 
+        // is integrated with your Mobile Service to make it easy to bind your data to the ListView
+        private MobileServiceCollectionView<TodoItem> items;
+
+        private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
+
+        public string userInputText = "";
+        private string answer = "";
+
+        public MainPage()
+        {
+            this.InitializeComponent();
+        }
 
 /*
  *  Ras, you can get live data like username and email contacts throught this.
@@ -80,21 +99,6 @@ namespace VoteApp
     }
  */
 
-    public sealed partial class MainPage : Page
-    {
-        // MobileServiceCollectionView implements ICollectionView (useful for databinding to lists) and 
-        // is integrated with your Mobile Service to make it easy to bind your data to the ListView
-        private MobileServiceCollectionView<TodoItem> items;
-
-        private IMobileServiceTable<TodoItem> todoTable = App.MobileService.GetTable<TodoItem>();
-
-        public string userInputText = "";
-
-        public MainPage()
-        {
-            this.InitializeComponent();
-        }
-
         private async void InsertTodoItem(TodoItem todoItem)
         {
             // This code inserts a new TodoItem into the database. When the operation completes
@@ -131,8 +135,8 @@ namespace VoteApp
         private void ButtonSave_Click(object sender, RoutedEventArgs e)
         {
             // Commented - MZ
-            // var todoItem = new TodoItem { Text = TextInput.Text };
-            // InsertTodoItem(todoItem);
+            //var todoItem = new TodoItem { Text = TextInput.Text };
+            //InsertTodoItem(todoItem);
         }
 
         private void CheckBoxComplete_Checked(object sender, RoutedEventArgs e)
@@ -145,7 +149,8 @@ namespace VoteApp
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            await Authenticate();
+            // TODO: Disabling authentication for now.
+            //await Authenticate();
             RefreshTodoItems();
         }
 
@@ -173,22 +178,26 @@ namespace VoteApp
             }
         }
 
-        private async void NoRadioButton_Checked(object sender, RoutedEventArgs e)
+        private void YesRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             // Need to get the user name here..
+            // TODO: The radio button needs a string label (eg. 'Tron' or 'Looper') that can be sent to the server.
+            answer = "Yes";
             //questionTextField.Text = Windows.System.UserProfile.UserInformation.GetDisplayNameAsync().ToString();//s +" clicked \"Yes\"";
         }
 
-        private async void YesRadioButton_Checked(object sender, RoutedEventArgs e)
+        private void NoRadioButton_Checked(object sender, RoutedEventArgs e)
         {
             // Need to get the user name here..
+            answer = "No";
             //questionTextField.Text = Windows.System.UserProfile.UserInformation.GetDisplayNameAsync().ToString();//s +" clicked \"Yes\"";
         }
-
+        
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            this.userInputText = questionTextField.Text;
-
+            //this.userInputText = questionTextField.Text;
+            var todoItem = new TodoItem { Question = questionTextField.Text, Answer = answer };
+            InsertTodoItem(todoItem);
         }
     }
 }
