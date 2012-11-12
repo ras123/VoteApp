@@ -30,6 +30,9 @@ namespace VoteApp
 
         [DataMember(Name = "Answer")]
         public string Answer { get; set; }
+
+        [DataMember(Name = "Friend")]
+        public string Friend { get; set; }
     }
 
     public sealed partial class MainPage : Page
@@ -40,6 +43,7 @@ namespace VoteApp
 
         private IMobileServiceTable<QuestionItem> questionTable = App.MobileService.GetTable<QuestionItem>();
 
+        //private string Mike = "MicrosoftAccount:02ae8c9c32a856d3b1b9ed42e021f330";
         public string userInputText = "";
         private string answer = "";
         private string userId = "";
@@ -59,13 +63,26 @@ namespace VoteApp
 
         private void RefreshTodoItems()
         {
-            // This code refreshes the entries in the list view be querying the TodoItems table.
+            // Unanswered questions.
             items = questionTable
-                //.Where(todoItem => todoItem.Complete == false)
+                .Where(todoItem => todoItem.UserId == userId && todoItem.Answer.Length == 0)
                 .ToCollectionView();
-            
-            // Commented - MZ
+
             PendingQuestions.ItemsSource = items;
+
+            // Answered questions.
+            items = questionTable
+                .Where(todoItem => todoItem.UserId == userId && todoItem.Answer.Length != 0)
+                .ToCollectionView();
+
+            AnsweredQuestions.ItemsSource = items;
+
+            // Questions we've been asked.
+            items = questionTable
+                .Where(todoItem => todoItem.Friend == userId)
+                .ToCollectionView();
+
+            FriendsQuestions.ItemsSource = items;
         }
 
         private async void UpdateCheckedTodoItem(QuestionItem item)
@@ -133,9 +150,9 @@ namespace VoteApp
 
 
                     string title = string.Format("Welcome {0}!", meResult.Result["first_name"]);
-                    var message = string.Format("You are now logged in - {0}", loginResult.UserId);
+                    var message = string.Format("You are now logged in.");// - {0}", loginResult.UserId);
                     userId = loginResult.UserId;
-                    userIDTextString.Text = userId;
+                    //userIDTextString.Text = userId;
                     var dialog = new MessageDialog(message, title);
                     dialog.Commands.Add(new UICommand("OK"));
                     await dialog.ShowAsync();
@@ -156,6 +173,7 @@ namespace VoteApp
             // Need to get the user name here..
             // TODO: The radio button needs a string label (eg. 'Tron' or 'Looper') that can be sent to the server.
             answer = "Yes";
+            QuestionAnswered();
             //questionTextField.Text = Windows.System.UserProfile.UserInformation.GetDisplayNameAsync().ToString();//s +" clicked \"Yes\"";
         }
 
@@ -163,13 +181,23 @@ namespace VoteApp
         {
             // Need to get the user name here..
             answer = "No";
+            QuestionAnswered();
+            //questionTextField.Text = Windows.System.UserProfile.UserInformation.GetDisplayNameAsync().ToString();//s +" clicked \"Yes\"";
+        }
+
+        private void QuestionAnswered()
+        {
+            // Need to get the user name here..
+            var todoItem = new QuestionItem { UserId = userId, Question = questionTextField.Text, Answer = answer, Friend = FriendBox.Text };
+            InsertTodoItem(todoItem);
+            RefreshTodoItems();
             //questionTextField.Text = Windows.System.UserProfile.UserInformation.GetDisplayNameAsync().ToString();//s +" clicked \"Yes\"";
         }
         
         private void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
             //this.userInputText = questionTextField.Text;
-            var todoItem = new QuestionItem { UserId = userId, Question = questionTextField.Text, Answer = answer };
+            var todoItem = new QuestionItem { UserId = userId, Question = questionTextField.Text, Answer = "", Friend = FriendBox.Text };
             InsertTodoItem(todoItem);
         }
     }
